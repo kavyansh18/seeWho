@@ -1,7 +1,6 @@
 {
-  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
   "/notFollowedBack/page": "app/notFollowedBack/page.js",
   "/notFollowing/page": "app/notFollowing/page.js",
-  "/pendingReq/page": "app/pendingReq/page.js",
-  "/page": "app/page.js"
+  "/pendingReq/page": "app/pendingReq/page.js"
 }
