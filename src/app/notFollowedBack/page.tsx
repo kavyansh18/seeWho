@@ -222,7 +222,7 @@ const Home = () => {
             onClick={closeModal}
           >
             <div
-              className="bg-gradient-to-r from-rose-100 to-teal-100 rounded-[36px] shadow-lg lg:w-[55vw] w-[90vw] lg:px-20 px-9 py-8 leading-relaxed "
+              className="bg-gradient-to-r from-rose-100 to-teal-100 rounded-[36px] shadow-lg lg:w-[55vw] w-[90vw] lg:px-20 px-9 lg:py-8 py-6 leading-relaxed "
               onClick={(e) => e.stopPropagation()}
             >
               <h2 className="text-center lg:text-xl text-lg font-bold pb-4">
