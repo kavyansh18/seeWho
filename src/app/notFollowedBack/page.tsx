@@ -2,6 +2,14 @@
 import { useState, useEffect } from "react";
 import arrow from "../assests/arrow.png";
 import "../index.css";
+import { FloatingDock } from "@/components/ui/floating-dock";
+import {
+  IconExchange,
+  IconHome,
+  IconNewSection,
+  IconTerminal2,
+} from "@tabler/icons-react";
+import Image from "next/image";
 
 interface User {
   name: string;
@@ -10,6 +18,39 @@ interface User {
 }
 
 const Home = () => {
+  const links = [
+    {
+      title: "Home",
+      icon: (
+        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "/",
+    },
+ 
+    {
+      title: "Not following you back",
+      icon: (
+        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "/notFollowedBack",
+    },
+    {
+      title: "Pending requests",
+      icon: (
+        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "/pendingReq",
+    },
+
+    {
+      title: "You don't follow back",
+      icon: (
+        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "/notFollowing",
+    },
+
+  ];
   const [file1, setFile1] = useState<File | null>(null);
   const [file2, setFile2] = useState<File | null>(null);
   const [notFollowedBack, setNotFollowedBack] = useState<User[]>(() => {
@@ -89,8 +130,13 @@ const Home = () => {
 
   return (
     <div className="bg-gradient-to-r from-rose-100 to-teal-100 w-full h-screen">
+      <div className="flex items-center justify-center w-full pt-16">
+      <FloatingDock
+        items={links}
+      />
+    </div>
       <div className="flex justify-start items-start px-40 gap-32">
-        <div className="max-w-2xl py-6 px-8 scale-125 mt-44  bg-white/30 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg">
+        <div className="max-w-2xl py-6 px-8 scale-125 mt-16 glass ">
           <h1 className="text-[18px] font-bold mb-8">
             Check users who are not following you back
           </h1>
@@ -146,10 +192,10 @@ const Home = () => {
           </button>
         </div>
 
-        <div className=" px-4 h-[80vh] mt-20 overflow-y-auto">
+        <div className=" px-4 h-[75vh] w-fit mt-3 overflow-y-auto">
           {notFollowedBack.length > 0 && (
             <div className="mt-6">
-              <h2 className="text-xl font-semibold mb-2 sticky top-0 bg-white/30 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg p-2">
+              <h2 className="text-xl font-semibold mb-2 sticky top-0 glass py-2 px-3">
                 You follow these people but they don't follow you!
               </h2>
               <p className="mt-4 text-lg font-semibold">Total count: {count}</p>
@@ -162,7 +208,7 @@ const Home = () => {
                     >
                       {user.name}
                     </li>
-                    <img className="w-4 h-4" src={arrow.src} alt="" />
+                    <img className="w-5 h-4 pl-1" src={arrow.src} alt="" />
                   </div>
                 ))}
               </ul>

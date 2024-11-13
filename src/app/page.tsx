@@ -20,13 +20,13 @@ export default function Home() {
         <div className="flex justify-center items-center gap-10 mt-8">
           <button 
             onClick={() => handleNavigation("/notFollowedBack")}
-            className="px-6"
+            className="px-6 button1"
           >
             Followers who don't follow you back
           </button>
           <button 
             onClick={() => handleNavigation("/pendingReq")}
-            className="px-6"
+            className="px-6 button1"
           >
             Pending follow requests
           </button>

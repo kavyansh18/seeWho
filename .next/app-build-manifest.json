@@ -17,6 +17,16 @@
       "static/chunks/main-app.js",
       "static/css/app/notFollowedBack/page.css",
       "static/chunks/app/notFollowedBack/page.js"
+    ],
+    "/pendingReq/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/pendingReq/page.js"
+    ],
+    "/notFollowing/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/notFollowing/page.js"
     ]
   }
 }
