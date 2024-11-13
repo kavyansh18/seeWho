@@ -1,6 +1,7 @@
-'use client'
-import { useState, useEffect } from 'react';
+"use client";
+import { useState, useEffect } from "react";
 import arrow from "../assests/arrow.png";
+import "../index.css";
 
 interface User {
   name: string;
@@ -46,11 +47,13 @@ const Home = () => {
       const file2Data = await parseJsonFile(file2);
 
       const followingList = new Set(
-        file1Data['relationships_following'].map((item: any) => item['string_list_data'][0])
+        file1Data["relationships_following"].map(
+          (item: any) => item["string_list_data"][0]
+        )
       );
 
       const followersList = new Set(
-        file2Data.map((item: any) => item['string_list_data'][0]['value'])
+        file2Data.map((item: any) => item["string_list_data"][0]["value"])
       );
 
       const notFollowedBackList: User[] = [...followingList]
@@ -85,41 +88,81 @@ const Home = () => {
   };
 
   return (
-    <div className='bg-gradient-to-r from-rose-100 to-teal-100 w-full h-screen'>
-      <div className='flex justify-start items-start px-40 gap-32'>
-        <div className="max-w-2xl py-6 px-10 shadow-md rounded-lg scale-125 mt-44">
-          <h1 className="text-2xl font-bold mb-4">Check Unfollowed Users</h1>
-          
+    <div className="bg-gradient-to-r from-rose-100 to-teal-100 w-full h-screen">
+      <div className="flex justify-start items-start px-40 gap-32">
+        <div className="max-w-2xl py-6 px-8 scale-125 mt-44  bg-white/30 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg">
+          <h1 className="text-[18px] font-bold mb-8">
+            Check users who are not following you back
+          </h1>
+
           <div className="mb-4">
-            <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="followingFile">Upload your following .JSON file</label>
-            <input className="block w-full text-sm border rounded-lg cursor-pointer text-gray-400 bg-gray-700 border-gray-600" id="followingFile" onChange={handleFile1Change} accept=".json" type="file" />
+            <label
+              className="block mb-2 text-sm font-medium text-gray-900"
+              htmlFor="followingFile"
+            >
+              Upload your following .JSON file
+            </label>
+            <input
+              className="block w-full text-sm border rounded-lg cursor-pointer text-gray-400 bg-gray-700 border-gray-600"
+              id="followingFile"
+              onChange={handleFile1Change}
+              accept=".json"
+              type="file"
+            />
           </div>
-          
+
           <div className="mb-4">
-            <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="followersFile">Upload your followers .JSON file</label>
-            <input className="block w-full text-sm border rounded-lg cursor-pointer text-gray-400 bg-gray-700 border-gray-600" id="followersFile" onChange={handleFile2Change} accept=".json" type="file" />
+            <label
+              className="block mb-2 text-sm font-medium text-gray-900"
+              htmlFor="followersFile"
+            >
+              Upload your followers .JSON file
+            </label>
+            <input
+              className="block w-full text-sm border rounded-lg cursor-pointer text-gray-400 bg-gray-700 border-gray-600"
+              id="followersFile"
+              onChange={handleFile2Change}
+              accept=".json"
+              type="file"
+            />
           </div>
-          
-          <button
-            onClick={handleCheck}
-            className="w-full bg-blue-500 text-white py-2 rounded mt-4"
-          >
-            Check
+
+          <button className="button2">
+            <span className="text2">Check</span>
+            <span className="svg2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="20"
+                viewBox="0 0 38 15"
+                fill="none"
+              >
+                <path
+                  fill="white"
+                  d="M10 7.519l-.939-.344h0l.939.344zm14.386-1.205l-.981-.192.981.192zm1.276 5.509l.537.843.148-.094.107-.139-.792-.611zm4.819-4.304l-.385-.923h0l.385.923zm7.227.707a1 1 0 0 0 0-1.414L31.343.448a1 1 0 0 0-1.414 0 1 1 0 0 0 0 1.414l5.657 5.657-5.657 5.657a1 1 0 0 0 1.414 1.414l6.364-6.364zM1 7.519l.554.833.029-.019.094-.061.361-.23 1.277-.77c1.054-.609 2.397-1.32 3.629-1.787.617-.234 1.17-.392 1.623-.455.477-.066.707-.008.788.034.025.013.031.021.039.034a.56.56 0 0 1 .058.235c.029.327-.047.906-.39 1.842l1.878.689c.383-1.044.571-1.949.505-2.705-.072-.815-.45-1.493-1.16-1.865-.627-.329-1.358-.332-1.993-.244-.659.092-1.367.305-2.056.566-1.381.523-2.833 1.297-3.921 1.925l-1.341.808-.385.245-.104.068-.028.018c-.011.007-.011.007.543.84zm8.061-.344c-.198.54-.328 1.038-.36 1.484-.032.441.024.94.325 1.364.319.45.786.64 1.21.697.403.054.824-.001 1.21-.09.775-.179 1.694-.566 2.633-1.014l3.023-1.554c2.115-1.122 4.107-2.168 5.476-2.524.329-.086.573-.117.742-.115s.195.038.161.014c-.15-.105.085-.139-.076.685l1.963.384c.192-.98.152-2.083-.74-2.707-.405-.283-.868-.37-1.28-.376s-.849.069-1.274.179c-1.65.43-3.888 1.621-5.909 2.693l-2.948 1.517c-.92.439-1.673.743-2.221.87-.276.064-.429.065-.492.057-.043-.006.066.003.155.127.07.099.024.131.038-.063.014-.187.078-.49.243-.94l-1.878-.689zm14.343-1.053c-.361 1.844-.474 3.185-.413 4.161.059.95.294 1.72.811 2.215.567.544 1.242.546 1.664.459a2.34 2.34 0 0 0 .502-.167l.15-.076.049-.028.018-.011c.013-.008.013-.008-.524-.852l-.536-.844.019-.012c-.038.018-.064.027-.084.032-.037.008.053-.013.125.056.021.02-.151-.135-.198-.895-.046-.734.034-1.887.38-3.652l-1.963-.384zm2.257 5.701l.791.611.024-.031.08-.101.311-.377 1.093-1.213c.922-.954 2.005-1.894 2.904-2.27l-.771-1.846c-1.31.547-2.637 1.758-3.572 2.725l-1.184 1.314-.341.414-.093.117-.025.032c-.01.013-.01.013.781.624zm5.204-3.381c.989-.413 1.791-.42 2.697-.307.871.108 2.083.385 3.437.385v-2c-1.197 0-2.041-.226-3.19-.369-1.114-.139-2.297-.146-3.715.447l.771 1.846z"
+                ></path>
+              </svg>
+            </span>
           </button>
         </div>
 
         <div className=" px-4 h-[80vh] mt-20 overflow-y-auto">
           {notFollowedBack.length > 0 && (
             <div className="mt-6">
-              <h2 className="text-xl font-semibold mb-2 sticky top-0 bg-white/30 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg p-2">You follow these people but they don't follow you!</h2>
+              <h2 className="text-xl font-semibold mb-2 sticky top-0 bg-white/30 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg p-2">
+                You follow these people but they don't follow you!
+              </h2>
               <p className="mt-4 text-lg font-semibold">Total count: {count}</p>
               <ul className="list-disc pl-6">
                 {notFollowedBack.map((user, index) => (
-                  <div className='flex flex-row' key={index}>
-                    <li className="text-lg text-gray-700 font-semibold mb-2 hover:underline cursor-pointer" onClick={() => window.open(user.href, '_blank')}>
+                  <div className="flex flex-row" key={index}>
+                    <li
+                      className="text-lg text-gray-700 font-semibold mb-2 hover:underline cursor-pointer"
+                      onClick={() => window.open(user.href, "_blank")}
+                    >
                       {user.name}
                     </li>
-                    <img className='w-4 h-4' src={arrow.src} alt="" />
+                    <img className="w-4 h-4" src={arrow.src} alt="" />
                   </div>
                 ))}
               </ul>

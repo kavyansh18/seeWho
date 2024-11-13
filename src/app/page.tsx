@@ -32,7 +32,7 @@ export default function Home() {
           </button>
           <button 
             onClick={() => handleNavigation("/notFollowing")}
-            className="px-6"
+            className="px-6 button1"
           >
             Followers you don't follow back
           </button>

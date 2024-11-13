@@ -1,5 +1,5 @@
 
-button {
+.button1 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,17 +17,80 @@ button {
     text-shadow: 0 1px #fff;
   }
   
-  button:hover {
+  .button1:hover {
     box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 3px 3px #CECFD1;
   }
   
-  button:active {
+  .button1:active {
     box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
   }
   
-  button:focus {
+  .button1:focus {
     box-shadow: 0 4px 3px 1px #FCFCFC, 0 6px 8px #D6D7D9, 0 -4px 4px #CECFD1, 0 -6px 4px #FEFEFE, inset 0 0 5px 3px #999, inset 0 0 30px #aaa;
   }
   
+.button2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 20px;
+  background: linear-gradient(to right, #ec4899, #7e22ce);
+  border: 5px solid #c0dfff;
+  color: white;
+  gap: 8px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.text2 {
+  font-size: 0.8em;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.svg2 {
+  padding-top: 1px;
+  height: 100%;
+  width: fit-content;
+}
+.svg2 svg {
+  width: 25px;
+  height: 25px;
+}
+.button2:hover {
+  border: 5px solid #b1d8ff;
+  background-color: #1b7aff;
+}
+.button2:active {
+  border: 5px solid #c0dfff;
+}
+.button2:hover .svg svg {
+  animation: jello-vertical 0.9s both;
+  transform-origin: left;
+}
+
+@keyframes jello-vertical {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  40% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  50% {
+    transform: scale3d(0.85, 1.15, 1);
+  }
+  65% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  75% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
   
   
