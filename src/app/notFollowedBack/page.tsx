@@ -53,6 +53,16 @@ const Home = () => {
   const [notFollowedBack, setNotFollowedBack] = useState<User[]>([]);
   const [count, setCount] = useState<number>(0);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const handleFile1Change = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
     if (file) setFile1(file);
@@ -74,11 +84,13 @@ const Home = () => {
       const file2Data = await parseJsonFile(file2);
 
       const followingList = new Set(
-        file1Data['relationships_following'].map((item: any) => item['string_list_data'][0])
+        file1Data["relationships_following"].map(
+          (item: any) => item["string_list_data"][0]
+        )
       );
 
       const followersList = new Set(
-        file2Data.map((item: any) => item['string_list_data'][0]['value'])
+        file2Data.map((item: any) => item["string_list_data"][0]["value"])
       );
 
       const notFollowedBackList: User[] = [...followingList]
@@ -91,7 +103,6 @@ const Home = () => {
 
       setNotFollowedBack(notFollowedBackList);
       setCount(notFollowedBackList.length);
-
     } catch (error) {
       alert("Error processing the files.");
     }
@@ -116,15 +127,19 @@ const Home = () => {
   return (
     <div className="bg-gradient-to-r from-rose-100 to-teal-100 w-full min-h-screen">
       <div className="flex items-center justify-center w-full pt-16">
-      <FloatingDock
-        items={links}
-      />
-    </div>
+        <FloatingDock items={links} />
+      </div>
       <div className="flex flex-col lg:flex-row justify-start items-start lg:gap-28 gap-12 px-6 lg:px-36">
         <div className="max-w-2xl py-6 mx-8 px-5 scale-125 mt-16 glass ">
-          <h1 className="lg:text-[18px] text-m font-bold mb-8">
+          <h1 className="lg:text-[18px] text-m font-bold ">
             Check users who are not following you back
           </h1>
+          <div
+            className="lg:mb-6 mb-4 lg:text-xs text-[10px] mt-1 text-red-600 cursor-pointer"
+            onClick={openModal}
+          >
+            How to get these JSON files from instagram?
+          </div>
 
           <div className="mb-4">
             <label
@@ -200,6 +215,44 @@ const Home = () => {
             </div>
           )}
         </div>
+
+        {isModalOpen && (
+          <div
+            className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+            onClick={closeModal}
+          >
+            <div
+              className="bg-gradient-to-r from-rose-100 to-teal-100 rounded-[36px] shadow-lg lg:w-[55vw] w-[90vw] lg:px-20 px-9 py-8 leading-relaxed "
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h2 className="text-center lg:text-xl text-lg font-bold pb-4">
+                Follow the steps to download the JSON files from instagram
+              </h2>
+              <ol className="list-decimal">
+                <li>Open Instagram, go to setting then <span className="font-semibold text-red-600">Account Center</span>.</li>
+                <li>Click on <span className="font-semibold">"your informations and permissions"</span></li>
+                <li>
+                  Click on <span className="font-semibold">"Download your informations"</span> then <span className="font-semibold">"Download or transfer
+                  information"</span>
+                </li>
+                <li>Select <span className="font-semibold">"Some of your information"</span></li>
+                <li>
+                  Select <span className="font-semibold">Followers and following</span> in the <span className="font-semibold text-red-600">Connections</span> option
+                </li>
+                <li>Choose <span className="font-semibold">"Download to device"</span></li>
+                <li>
+                  Choose date range according to you and <span className="font-semibold text-red-600">select the format to
+                  JSON</span> and high quality, then click create.
+                </li>
+                <li>
+                  Download option will be available in the <span className="font-semibold">Download your
+                  information</span> section after few minutes.
+                </li>
+                <li><span className="font-semibold text-red-600">Unzip</span> the folder and upload the asked JSON file here.</li>
+              </ol>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
