@@ -148,7 +148,7 @@ const Home = () => {
               className="block mb-2 text-sm font-medium text-gray-900"
               htmlFor="followingFile"
             >
-              Upload your following .JSON file
+              Upload your following.json file
             </label>
             <input
               className="block w-full text-sm border rounded-lg cursor-pointer text-gray-400 bg-gray-700 border-gray-600"
@@ -164,7 +164,7 @@ const Home = () => {
               className="block mb-2 text-sm font-medium text-gray-900"
               htmlFor="followersFile"
             >
-              Upload your followers .JSON file
+              Upload your followers_1.json file
             </label>
             <input
               className="block w-full text-sm border rounded-lg cursor-pointer text-gray-400 bg-gray-700 border-gray-600"
