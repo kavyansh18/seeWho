@@ -25,7 +25,6 @@ const Home = () => {
       ),
       href: "/",
     },
- 
     {
       title: "Not following you back",
       icon: (
@@ -40,7 +39,6 @@ const Home = () => {
       ),
       href: "/pendingReq",
     },
-
     {
       title: "You don't follow back",
       icon: (
@@ -48,30 +46,12 @@ const Home = () => {
       ),
       href: "/notFollowing",
     },
-
   ];
+
   const [file1, setFile1] = useState<File | null>(null);
   const [file2, setFile2] = useState<File | null>(null);
-  const [notFollowedBack, setNotFollowedBack] = useState<User[]>(() => {
-    const savedData = localStorage.getItem("notFollowedBack");
-    return savedData ? JSON.parse(savedData) : [];
-  });
-  const [count, setCount] = useState<number>(() => {
-    const savedCount = localStorage.getItem("count");
-    return savedCount ? parseInt(savedCount) : 0;
-  });
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedData = localStorage.getItem('notFollowedBackData');
-      if (storedData) {
-        const parsedData = JSON.parse(storedData);
-        setNotFollowedBack(parsedData);
-        setCount(parsedData.length);
-      }
-    }
-  }, []); 
-  
+  const [notFollowedBack, setNotFollowedBack] = useState<User[]>([]);
+  const [count, setCount] = useState<number>(0);
 
   const handleFile1Change = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
@@ -111,12 +91,6 @@ const Home = () => {
 
       setNotFollowedBack(notFollowedBackList);
       setCount(notFollowedBackList.length);
-
-      // Store data in localStorage
-      if (typeof window !== "undefined") {
-        localStorage.setItem('notFollowedBackData', JSON.stringify(notFollowedBackList));
-        localStorage.setItem('count', notFollowedBackList.length.toString());
-      }
 
     } catch (error) {
       alert("Error processing the files.");
