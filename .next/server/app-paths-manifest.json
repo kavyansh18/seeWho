@@ -2,6 +2,6 @@
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/notFollowedBack/page": "app/notFollowedBack/page.js",
   "/page": "app/page.js",
-  "/pendingReq/page": "app/pendingReq/page.js",
-  "/notFollowing/page": "app/notFollowing/page.js"
+  "/notFollowing/page": "app/notFollowing/page.js",
+  "/pendingReq/page": "app/pendingReq/page.js"
 }

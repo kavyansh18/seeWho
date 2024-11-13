@@ -129,15 +129,15 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-rose-100 to-teal-100 w-full h-screen">
+    <div className="bg-gradient-to-r from-rose-100 to-teal-100 w-full min-h-screen">
       <div className="flex items-center justify-center w-full pt-16">
       <FloatingDock
         items={links}
       />
     </div>
-      <div className="flex justify-start items-start px-40 gap-32">
-        <div className="max-w-2xl py-6 px-8 scale-125 mt-16 glass ">
-          <h1 className="text-[18px] font-bold mb-8">
+      <div className="flex flex-col lg:flex-row justify-start items-start lg:gap-28 gap-12 px-6 lg:px-36">
+        <div className="max-w-2xl py-6 mx-8 px-5 scale-125 mt-16 glass ">
+          <h1 className="lg:text-[18px] text-m font-bold mb-8">
             Check users who are not following you back
           </h1>
 
@@ -192,10 +192,10 @@ const Home = () => {
           </button>
         </div>
 
-        <div className=" px-4 h-[75vh] w-fit mt-3 overflow-y-auto">
+        <div className=" px-4 h-[75vh] w-fit mt-3 overflow-y-auto  mb-12 lg:mb-0">
           {notFollowedBack.length > 0 && (
             <div className="mt-6">
-              <h2 className="text-xl font-semibold mb-2 sticky top-0 glass py-2 px-3">
+              <h2 className="lg:text-xl text-sm font-semibold mb-2 sticky top-0 glass py-2 px-3">
                 You follow these people but they don't follow you!
               </h2>
               <p className="mt-4 text-lg font-semibold">Total count: {count}</p>
