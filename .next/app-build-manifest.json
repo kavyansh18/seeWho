@@ -29,6 +29,17 @@
       "static/chunks/main-app.js",
       "static/css/app/notFollowing/page.css",
       "static/chunks/app/notFollowing/page.js"
+    ],
+    "/recentlyUnfollowed/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/recentlyUnfollowed/page.css",
+      "static/chunks/app/recentlyUnfollowed/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

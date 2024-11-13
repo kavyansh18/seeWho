@@ -8,6 +8,7 @@ import {
   IconHome,
   IconNewSection,
   IconTerminal2,
+  IconBroadcastOff,
 } from "@tabler/icons-react";
 
 interface User {
@@ -45,6 +46,13 @@ const Home = () => {
         <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
       href: "/notFollowing",
+    },
+    {
+      title: "You recently unfollowed",
+      icon: (
+        <IconBroadcastOff className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "/recentlyUnfollowed",
     },
   ];
 

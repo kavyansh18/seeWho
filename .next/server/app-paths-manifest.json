@@ -1,6 +1,9 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
   "/notFollowedBack/page": "app/notFollowedBack/page.js",
   "/pendingReq/page": "app/pendingReq/page.js",
   "/notFollowing/page": "app/notFollowing/page.js",
-  "/page": "app/page.js"
+  "/recentlyUnfollowed/page": "app/recentlyUnfollowed/page.js"
 }
