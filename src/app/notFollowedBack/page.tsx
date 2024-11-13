@@ -61,16 +61,6 @@ const Home = () => {
     return savedCount ? parseInt(savedCount) : 0;
   });
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const storedData = localStorage.getItem('notFollowedBackData');
-      if (storedData) {
-        setNotFollowedBack(JSON.parse(storedData));
-        setCount(JSON.parse(storedData).length);
-      }
-    }
-  }, []);
-
   const handleFile1Change = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
     if (file) setFile1(file);
@@ -109,11 +99,6 @@ const Home = () => {
 
       setNotFollowedBack(notFollowedBackList);
       setCount(notFollowedBackList.length);
-
-      // Store data in localStorage
-      if (typeof window !== "undefined") {
-        localStorage.setItem('notFollowedBackData', JSON.stringify(notFollowedBackList));
-      }
 
     } catch (error) {
       alert("Error processing the files.");
