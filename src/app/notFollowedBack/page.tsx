@@ -63,17 +63,19 @@ const Home = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className='bg-gradient-to-r from-rose-100 to-teal-100 w-full h-screen'>
+      <div className='flex justify-start items-start px-40  gap-20'>
+    <div className="max-w-2xl p-6  shadow-md rounded-lg scale-125 mt-28">
       <h1 className="text-2xl font-bold mb-4">Check Unfollowed Users</h1>
       
       <div className="mb-4">
-        <label className="block text-lg font-medium">Upload Following List (JSON)</label>
-        <input type="file" onChange={handleFile1Change} accept=".json" className="w-full mt-2 border border-gray-300 rounded p-2" />
+      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="default_size">Upload your following .JSON file</label>
+      <input className="block w-full text-sm  border rounded-lg cursor-pointer  text-gray-400 focus:outline-none bg-gray-700 border-gray-600 placeholder-gray-400" id="default_size" onChange={handleFile1Change} accept=".json" type="file" />
       </div>
       
       <div className="mb-4">
-        <label className="block text-lg font-medium">Upload Followers List (JSON)</label>
-        <input type="file" onChange={handleFile2Change} accept=".json" className="w-full mt-2 border border-gray-300 rounded p-2" />
+      <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="default_size">Upload your followers .JSON file</label>
+      <input className="block w-full text-sm  border rounded-lg cursor-pointer  text-gray-400 focus:outline-none bg-gray-700 border-gray-600 placeholder-gray-400" id="default_size" onChange={handleFile2Change} accept=".json" type="file" />
       </div>
       
       <button
@@ -82,18 +84,24 @@ const Home = () => {
       >
         Check
       </button>
+      </div>
 
-      {notFollowedBack.length > 0 && (
-        <div className="mt-6">
-          <h2 className="text-xl font-semibold mb-2">You follow these people but they don't follow you!</h2>
-          <ul className="list-disc pl-6">
-            {notFollowedBack.map((user, index) => (
-              <li key={index} className="text-lg text-gray-700">{user}</li>
-            ))}
-          </ul>
-          <p className="mt-4 text-lg font-semibold">Total count: {count}</p>
-        </div>
-      )}
+      <div className=" px-4 h-[80vh] mt-20 overflow-y-auto">
+  {notFollowedBack.length > 0 && (
+    <div className="mt-6">
+      <h2 className="text-xl font-semibold mb-2 sticky top-0 bg-white py-2">You follow these people but they don't follow you!</h2>
+      <ul className="list-disc pl-6">
+        {notFollowedBack.map((user, index) => (
+          <li key={index} className="text-lg text-gray-700">{user}</li>
+        ))}
+      </ul>
+      <p className="mt-4 text-lg font-semibold">Total count: {count}</p>
+    </div>
+  )}
+</div>
+
+      </div>
+
     </div>
   );
 };
