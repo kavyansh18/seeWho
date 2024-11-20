@@ -118,7 +118,8 @@ const Home = () => {
 
   return (
     <div className="bg-gradient-to-r from-rose-100 to-teal-100 w-full min-h-screen">
-      <div className="flex items-center justify-center w-full pt-16">
+      <div className="fixed top-4 lg:left-5 left-1 lg:text-3xl text-2xl px-5 py-[2px] font-bold rounded-[36px] bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 border-pink-500 lg:border-2 border-1">seeWho</div>
+      <div className="flex items-center justify-center w-full lg:pt-16 pt-20">
         <FloatingDock items={links} />
       </div>
       <div className="flex flex-col lg:flex-row justify-start items-start lg:gap-28 gap-12 px-6 lg:px-36">
