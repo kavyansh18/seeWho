@@ -14,15 +14,23 @@ export default function Home() {
 
   return (
     <BackgroundBeamsWithCollision>
-      <div className="flex flex-col justify-start items-center bg-gradient-to-r from-rose-100 to-teal-100 w-screen h-screen lg:pt-28 pt-48">
+      <div className="flex flex-col justify-start items-center bg-gradient-to-r from-rose-100 to-teal-100 w-screen h-screen lg:pt-24 pt-48">
 
         <motion.div
-          className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4 text-[80px] lg:text-[100px] font-semibold"
+          className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 text-[80px] lg:text-[100px] font-semibold"
           initial={{ y: 100, opacity: 0 }} 
           animate={{ y: 0, opacity: 1 }}   
           transition={{ duration: 0.6 }}    
         >
           <span className="">seeWho</span>
+        </motion.div>
+        <motion.div
+          className="relative bg-gradient-to-r from-purple-500 to-purple-900 bg-clip-text text-transparent text-[10px] lg:text-[30px] font-semibold pb-20"
+          initial={{ y: 100, opacity: 0 }} 
+          animate={{ y: 0, opacity: 1 }}   
+          transition={{ duration: 0.6 }}    
+        >
+          <p className="">Follower Truths Without Compromising Your Security</p>
         </motion.div>
         
         <div className="flex lg:flex-row flex-col justify-center items-center lg:gap-8 gap-3 lg:mt-3 mt-2">
