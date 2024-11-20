@@ -1,7 +1,6 @@
 {
   "/page": "app/page.js",
-  "/recentlyUnfollowed/page": "app/recentlyUnfollowed/page.js",
-  "/pendingReq/page": "app/pendingReq/page.js",
   "/notFollowedBack/page": "app/notFollowedBack/page.js",
-  "/notFollowing/page": "app/notFollowing/page.js"
+  "/notFollowing/page": "app/notFollowing/page.js",
+  "/recentlyUnfollowed/page": "app/recentlyUnfollowed/page.js"
 }
